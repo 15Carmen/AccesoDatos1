@@ -1,24 +1,21 @@
 package Ejercicio1;
 
 import java.io.*;
+import java.util.Scanner;
+
 public class CarpetaDeEjercicios {
     public static void main(String[] args) {
 
         try{
-            String directorio="C:\\Users\\cmnbo\\Acceso a Datos";
-            File fichero = new File("C:\\Users\\cmnbo\\Acceso a Datos\\palabras.txt");
+            File fichero = new File("C:\\Users\\cmartin\\eclipse-workspace\\AccesoDatos1\\src\\Ejercicio1\\carpeta.txt");
+            Scanner sc = new Scanner(new File(String.valueOf(fichero)));
 
-            boolean bien = (new File(directorio)).mkdir();
-
-            if (bien){
-                System.out.println("Directorio: "+directorio+" creado");
+            while (sc.hasNextLine()) {
+                String line = sc.nextLine();
+                File fic = new File(line);
+                fic.mkdirs();
             }
 
-            if (fichero.createNewFile()) {
-                System.out.println("El fichero se ha creado correctamente");
-            }else{
-                System.out.println("No se ha podido crear el fichero");
-            }
 
         } catch (Exception e){
             System.out.println("Error!! "+e.getMessage());
